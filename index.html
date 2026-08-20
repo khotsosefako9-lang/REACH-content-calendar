@@ -24,15 +24,18 @@
     --line: rgba(23,27,26,0.14);
     --line-strong: rgba(23,27,26,0.24);
   }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  *{box-sizing:border-box; min-width:0;}
+  html{scroll-behavior:smooth; overflow-x:hidden;}
   body{
     margin:0;
     background:var(--parchment);
     color:var(--ink);
     font-family:'Work Sans', sans-serif;
     -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    width:100%;
   }
+  img,svg{max-width:100%;}
   h1,h2,h3,.serif{font-family:'Fraunces', serif;}
   section{
     min-height:100vh;
@@ -276,14 +279,22 @@
 
   @media (max-width:820px){
     section{padding:4rem 6vw 3rem;}
+    .rhythm-box{padding:1.1rem 1.1rem 1.4rem;}
     .pillars{grid-template-columns:1fr 1fr;}
     .two-col{grid-template-columns:1fr; gap:2rem;}
-    .ministry-grid{grid-template-columns:repeat(2,1fr);}
+
     .platform-compare{grid-template-columns:1fr;}
     .role-row{grid-template-columns:1fr;}
-    .day-row{grid-template-columns:repeat(7,1fr); gap:0.3rem;}
-    .day-cell{padding:0.6rem 0.15rem 0.8rem;}
+    .day-row{grid-template-columns:1fr; gap:0;}
+    .day-cell{
+      display:flex; align-items:baseline; justify-content:space-between; gap:1rem;
+      padding:0.85rem 0; border-top:none; border-bottom:1px solid var(--line); text-align:left;
+    }
+    .day-cell.post{border-bottom:1px solid var(--teal);}
+    .day-cell .dname{margin-bottom:0; min-width:2.6rem;}
+    .day-cell .dlabel{margin-bottom:0; text-align:right;}
     .day-cell .dsub{display:none;}
+    .ministry-grid{grid-template-columns:1fr;}
     .chip-grid{grid-template-columns:1fr;}
     .month{overflow-x:auto;}
     .month-head, .month-grid{min-width:640px;}
@@ -315,33 +326,13 @@
   <div class="bottom-row">
     <span>Instagram and Facebook</span>
     <span>Prepared for the REACH social media team</span>
-    <span>13 sections</span>
-  </div>
-</section>
-
-<section id="s2">
-  <div class="content-max">
-    <div class="eyebrow"><span class="num">01</span> Why this structure</div>
-    <h2 class="title">The goal is a feed people keep watching.</h2>
-    <p class="lede">These are the working assumptions behind everything in this document.</p>
-    <div class="two-col">
-      <ul class="list-clean">
-        <li><span class="lnum">01</span><div class="ltext"><strong>Fixed days, flexible formats</strong><span>Each pillar has a set day. What gets posted on that day can change from week to week.</span></div></li>
-        <li><span class="lnum">02</span><div class="ltext"><strong>Three rest days a week</strong><span>Tuesday, Thursday and Saturday stay quiet. A page that posts daily gets scrolled past.</span></div></li>
-        <li><span class="lnum">03</span><div class="ltext"><strong>Every post has a way to respond</strong><span>A caption question, a poll, or a prompt to tag someone. Built in, not left to chance.</span></div></li>
-      </ul>
-      <ul class="list-clean">
-        <li><span class="lnum">04</span><div class="ltext"><strong>Each pillar points somewhere</strong><span>Ministry spotlights, bible study content and devotionals lead people toward Sunday.</span></div></li>
-        <li><span class="lnum">05</span><div class="ltext"><strong>The audience is everyone</strong><span>Kids' parents, students, seniors, first-time visitors, long-time members. One feed, different reasons to stop scrolling.</span></div></li>
-        <li><span class="lnum">06</span><div class="ltext"><strong>Built for the current setup</strong><span>Phone, CapCut, Canva. Nothing here requires new equipment.</span></div></li>
-      </ul>
-    </div>
+    <span>6 sections</span>
   </div>
 </section>
 
 <section id="s3">
   <div class="content-max">
-    <div class="eyebrow"><span class="num">02</span> The weekly rhythm</div>
+    <div class="eyebrow"><span class="num">01</span> The weekly rhythm</div>
     <h2 class="title">Four posts a week, on fixed days.</h2>
     <p class="lede">Posting days and rest days alternate through the week, which makes the pattern easy to hold to even on a busy week.</p>
     <div class="rhythm-box">
@@ -385,7 +376,7 @@
 
 <section id="s4">
   <div class="content-max">
-    <div class="eyebrow"><span class="num">03</span> The four pillars</div>
+    <div class="eyebrow"><span class="num">02</span> The four pillars</div>
     <h2 class="title">Every post belongs to one of four categories.</h2>
     <p class="lede">Each pillar has its own purpose and its own day. The format inside each one is free to change.</p>
     <div class="pillars">
@@ -410,7 +401,7 @@
       <div class="pillar">
         <span class="day">Sunday</span>
         <h3>Sunday life</h3>
-        <p>A same-day recap of both services, for members and for people who weren't there.</p>
+        <p>A same-day recap of both services (08:30 and 10:30), for members and for people who weren't there.</p>
         <span class="tag">Recap video</span>
       </div>
     </div>
@@ -419,118 +410,66 @@
 
 <section id="s5">
   <div class="content-max">
-    <div class="eyebrow"><span class="num">04</span> Pillar 01: Ministry spotlight</div>
+    <div class="eyebrow"><span class="num">03</span> Ministry spotlight</div>
     <h2 class="title">Ten ministries, filmed one at a time.</h2>
-    <p class="lede">Shot Saturday, edited over the weekend, posted Monday. A ten-week rotation covers all 10 ministries once before starting again.</p>
-    <div class="two-col">
-      <div>
-        <p style="font-size:0.86rem; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.06em; margin-bottom:0.8rem; font-weight:600;">The 10-week rotation</p>
-        <div class="ministry-grid">
-          <div class="ministry-cell"><span class="wk">Wk 01</span><strong>Kids ministry</strong><span class="lead">Dion</span></div>
-          <div class="ministry-cell"><span class="wk">Wk 02</span><strong>Youth ministry</strong><span class="lead">Ona</span></div>
-          <div class="ministry-cell"><span class="wk">Wk 03</span><strong>Student ministry</strong><span class="lead">Tshiamo</span></div>
-          <div class="ministry-cell"><span class="wk">Wk 04</span><strong>Parents ministry</strong><span class="lead">Neil</span></div>
-          <div class="ministry-cell"><span class="wk">Wk 05</span><strong>Men's ministry</strong><span class="lead">Lungisani</span></div>
-          <div class="ministry-cell"><span class="wk">Wk 06</span><strong>Ladies ministry</strong><span class="lead">Jenna</span></div>
-          <div class="ministry-cell"><span class="wk">Wk 07</span><strong>Senior ministry</strong><span class="lead">Paul</span></div>
-          <div class="ministry-cell"><span class="wk">Wk 08</span><strong>Music ministry</strong><span class="lead">Jackie</span></div>
-          <div class="ministry-cell"><span class="wk">Wk 09</span><strong>Book ministry</strong><span class="lead">Joey</span></div>
-          <div class="ministry-cell"><span class="wk">Wk 10</span><strong>Media ministry</strong><span class="lead">SK</span></div>
-        </div>
-      </div>
-      <div>
-        <p style="font-size:0.86rem; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.06em; margin-bottom:0.8rem; font-weight:600;">What a spotlight can include</p>
-        <ul class="list-clean">
-          <li><div class="ltext"><strong>The person leading it</strong><span>A short interview with the ministry lead about why they serve.</span></div></li>
-          <li><div class="ltext"><strong>What a typical week looks like</strong><span>Prep, meetings, the Sunday moment itself.</span></div></li>
-          <li><div class="ltext"><strong>A specific story</strong><span>A testimony or moment that shows the ministry's impact.</span></div></li>
-          <li><div class="ltext"><strong>How to join</strong><span>A closing line on how someone gets involved.</span></div></li>
-        </ul>
-      </div>
+    <p class="lede">Shot Saturday, edited over the weekend, posted Monday. A ten-week rotation covers all 10 ministries, then starts again with fresh angles.</p>
+    <div class="ministry-grid">
+      <div class="ministry-cell"><span class="wk">Wk 01</span><strong>Kids ministry</strong><span class="lead">Dion</span></div>
+      <div class="ministry-cell"><span class="wk">Wk 02</span><strong>Youth ministry</strong><span class="lead">Ona</span></div>
+      <div class="ministry-cell"><span class="wk">Wk 03</span><strong>Student ministry</strong><span class="lead">Tshiamo</span></div>
+      <div class="ministry-cell"><span class="wk">Wk 04</span><strong>Parents ministry</strong><span class="lead">Neil</span></div>
+      <div class="ministry-cell"><span class="wk">Wk 05</span><strong>Men's ministry</strong><span class="lead">Lungisani</span></div>
+      <div class="ministry-cell"><span class="wk">Wk 06</span><strong>Ladies ministry</strong><span class="lead">Jenna</span></div>
+      <div class="ministry-cell"><span class="wk">Wk 07</span><strong>Senior ministry</strong><span class="lead">Paul</span></div>
+      <div class="ministry-cell"><span class="wk">Wk 08</span><strong>Music ministry</strong><span class="lead">Jackie</span></div>
+      <div class="ministry-cell"><span class="wk">Wk 09</span><strong>Book ministry</strong><span class="lead">Joey</span></div>
+      <div class="ministry-cell"><span class="wk">Wk 10</span><strong>Media ministry</strong><span class="lead">SK</span></div>
     </div>
+    <p style="margin-top:1.6rem; font-size:0.9rem; color:var(--ink-soft);">Each spotlight covers the person leading it, a typical week, one specific story, and how to get involved.</p>
   </div>
 </section>
 
 <section id="s6">
   <div class="content-max">
-    <div class="eyebrow"><span class="num">05</span> Pillar 02: Bible study</div>
-    <h2 class="title">Same day, different format each week.</h2>
-    <p class="lede">Wednesday carries the post. Thursday's second session stays off the feed, which keeps the rest days intact. Rotating between these formats keeps the Wednesday post from repeating itself.</p>
-    <div class="chip-grid">
-      <div class="chip"><div class="chip-head"><strong>Recap video</strong><em>Video</em></div><p>A 30 to 60 second cut of the session, worship and discussion included.</p></div>
-      <div class="chip"><div class="chip-head"><strong>Passage breakdown</strong><em>Carousel</em></div><p>The verse studied that week, explained slide by slide.</p></div>
-      <div class="chip"><div class="chip-head"><strong>Quote card</strong><em>Single image</em></div><p>One line pulled from that night's discussion or teaching.</p></div>
-      <div class="chip"><div class="chip-head"><strong>Question of the week</strong><em>Reel or graphic</em></div><p>A discussion question from the session, reopened for people to answer in the comments.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="s7">
-  <div class="content-max">
-    <div class="eyebrow"><span class="num">06</span> Pillar 03: Weekly devotional</div>
-    <h2 class="title">A Friday post that leads into Sunday.</h2>
-    <p class="lede">This can be the more playful post of the week, while still landing on something true.</p>
-    <div class="chip-grid">
-      <div class="chip"><div class="chip-head"><strong>This or that</strong><em>Interactive</em></div><p>A light poll or prompt in the caption, an easy first comment.</p></div>
-      <div class="chip"><div class="chip-head"><strong>Verse and reflection</strong><em>Carousel</em></div><p>A short devotional: a verse, a thought, one practical takeaway.</p></div>
-      <div class="chip"><div class="chip-head"><strong>Street-style Q&amp;A</strong><em>Reel</em></div><p>Quick phone clips asking people around church a fun faith question.</p></div>
-      <div class="chip"><div class="chip-head"><strong>The invite</strong><em>Graphic</em></div><p>A simple "see you Sunday" post with service times and who's welcome.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="s8">
-  <div class="content-max">
-    <div class="eyebrow"><span class="num">07</span> Pillar 04: Sunday</div>
-    <h2 class="title">Two services, one recap, same day.</h2>
-    <p class="lede">08:30 and 10:30, with a recap posted the same day, while it's still current.</p>
+    <div class="eyebrow"><span class="num">04</span> Formats to rotate through</div>
+    <h2 class="title">Same day, different shape each week.</h2>
     <div class="two-col">
-      <ul class="list-clean">
-        <li><span class="lnum">08:30</span><div class="ltext"><strong>First service</strong><span>Footage from worship, welcome and message.</span></div></li>
-        <li><span class="lnum">10:30</span><div class="ltext"><strong>Second service</strong><span>A second pass, used to pick the strongest moments across both services.</span></div></li>
-      </ul>
-      <ul class="list-clean">
-        <li><div class="ltext"><strong>Keep it short and specific</strong><span>Worship, a moment at the door, one clear scene rather than a full summary.</span></div></li>
-        <li><div class="ltext"><strong>Caption ends with an invite</strong><span>A simple line pointing to next Sunday.</span></div></li>
-      </ul>
+      <div>
+        <p style="font-size:0.86rem; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.06em; margin-bottom:0.8rem; font-weight:600;">Wednesday: Bible study</p>
+        <div class="chip-grid" style="grid-template-columns:1fr;">
+          <div class="chip"><div class="chip-head"><strong>Recap video</strong><em>Video</em></div><p>A short cut of the session.</p></div>
+          <div class="chip"><div class="chip-head"><strong>Passage or quote</strong><em>Carousel or image</em></div><p>The verse studied, or one line from the discussion.</p></div>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:0.86rem; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.06em; margin-bottom:0.8rem; font-weight:600;">Friday: Devotional</p>
+        <div class="chip-grid" style="grid-template-columns:1fr;">
+          <div class="chip"><div class="chip-head"><strong>This or that</strong><em>Poll</em></div><p>A light prompt, an easy first comment.</p></div>
+          <div class="chip"><div class="chip-head"><strong>Verse or invite</strong><em>Carousel or graphic</em></div><p>A short reflection, or a simple "see you Sunday."</p></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="s9">
   <div class="content-max">
-    <div class="eyebrow"><span class="num">08</span> Events and carousels</div>
-    <h2 class="title">Events use an existing day.</h2>
-    <p class="lede">Instead of adding a posting day, event content takes the nearest pillar's slot, with a format that changes from event to event.</p>
-    <div class="chip-grid">
-      <div class="chip"><div class="chip-head"><strong>Countdown carousel</strong><em>3 slides</em></div><p>A short countdown in the week before: date, what to expect, why it matters.</p></div>
-      <div class="chip"><div class="chip-head"><strong>Behind the planning</strong><em>Reel</em></div><p>A short clip of the team setting up, posted ahead of the event.</p></div>
-      <div class="chip"><div class="chip-head"><strong>The poster</strong><em>Static</em></div><p>One consistent poster format for the core announcement.</p></div>
-      <div class="chip"><div class="chip-head"><strong>The recap</strong><em>Video or carousel</em></div><p>Posted in the following week's spotlight or devotional slot.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="s10">
-  <div class="content-max">
-    <div class="eyebrow"><span class="num">09</span> Platforms</div>
-    <h2 class="title">Same content, tuned per platform.</h2>
-    <p class="lede">Instagram and Facebook run the same posts on the same days, adjusted for how each is actually used.</p>
+    <div class="eyebrow"><span class="num">05</span> Events and platforms</div>
+    <h2 class="title">Events borrow a day. Platforms share the content.</h2>
+    <p class="lede">Event content takes the nearest pillar's slot instead of adding a posting day: a countdown carousel or behind-the-planning clip beforehand, a poster for the announcement, a recap the week after. Instagram and Facebook then run the same posts, tuned to how each is used.</p>
     <div class="platform-compare">
       <div class="platform-col">
         <h4>Instagram</h4>
         <ul>
-          <li>Feed carries the polished version: carousels, shorter captions, reels for anything with movement</li>
-          <li>Stories reshare each feed post, plus extra behind-the-scenes clips</li>
+          <li>Feed carries the polished version, Stories reshare it plus extra behind-the-scenes clips</li>
           <li>First line of the caption needs to hold attention before "more" gets tapped</li>
         </ul>
       </div>
       <div class="platform-col">
         <h4>Facebook</h4>
         <ul>
-          <li>Same visuals, longer captions, this audience reads and shares more</li>
-          <li>Events feature used for anything with a date, with its own reminders</li>
-          <li>Recap videos uploaded natively here too, older and extended family are more likely to be on Facebook</li>
+          <li>Same visuals, longer captions, an audience that reads and shares more</li>
+          <li>Events feature used for anything with a date, recap videos uploaded natively too</li>
         </ul>
       </div>
     </div>
@@ -539,7 +478,7 @@
 
 <section id="s11">
   <div class="content-max">
-    <div class="eyebrow"><span class="num">10</span> A sample month</div>
+    <div class="eyebrow"><span class="num">06</span> A sample month</div>
     <h2 class="title">Four weeks, with one event.</h2>
     <p class="lede">Week three shows how an event fills the Wednesday slot instead of adding a fifth post.</p>
     <div class="month">
@@ -587,42 +526,6 @@
       <span><i style="background:var(--teal-deep)"></i>Sunday recap</span>
       <span><i style="background:var(--ink)"></i>Event</span>
     </div>
-  </div>
-</section>
-
-<section id="s12">
-  <div class="content-max">
-    <div class="eyebrow"><span class="num">11</span> Roles and workflow</div>
-    <h2 class="title">How the week gets produced.</h2>
-    <p class="lede">Built around the current setup: two people, phone, CapCut, Canva.</p>
-    <div class="role-row">
-      <div class="role-cell">
-        <div class="rday">Saturday</div>
-        <p><strong>Shoot day.</strong> Film the ministry spotlight: an interview plus a few shots of the ministry in action.</p>
-      </div>
-      <div class="role-cell">
-        <div class="rday">Sunday to Monday</div>
-        <p><strong>Edit and post.</strong> Cut the spotlight in CapCut, build the carousel in Canva, post Monday morning.</p>
-      </div>
-      <div class="role-cell">
-        <div class="rday">Ongoing</div>
-        <p><strong>Bible study and Sunday.</strong> Captured live at each session and service, edited the same week.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="s13">
-  <div class="content-max">
-    <div class="eyebrow"><span class="num">12</span> Open questions</div>
-    <h2 class="title">A few decisions worth making as a team.</h2>
-    <p class="lede">This is a starting structure, and these are the calls worth making before the first month runs.</p>
-    <ul class="questions">
-      <li><strong>Does Thursday's second bible study ever get content?</strong><span>Or does it stay fully off the feed, to protect the rest days.</span></li>
-      <li><strong>How much short vertical video beyond the two recaps?</strong><span>Worth deciding if spotlight or devotional posts move more toward video over time.</span></li>
-      <li><strong>Who signs off before something goes live?</strong><span>One approver keeps tone and quality consistent across a two-person team.</span></li>
-      <li><strong>One event poster template, or room to vary by event size?</strong><span>A conference or outreach may call for different treatment than a small youth event.</span></li>
-    </ul>
   </div>
 </section>
 
